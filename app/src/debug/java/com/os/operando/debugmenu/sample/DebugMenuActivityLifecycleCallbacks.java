@@ -8,7 +8,7 @@ public class DebugMenuActivityLifecycleCallbacks implements Application.Activity
 
     @Override
     public void onActivityCreated(Activity activity, Bundle bundle) {
-
+        DebugMenuNotificationManager.showDebugMenuNotification(activity);
     }
 
     @Override
@@ -38,6 +38,6 @@ public class DebugMenuActivityLifecycleCallbacks implements Application.Activity
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-
+        DebugMenuNotificationManager.cancelDebugMenuNotification(activity);
     }
 }
