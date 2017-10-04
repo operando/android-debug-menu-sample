@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    dataBinding {
+        enabled true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -18,6 +21,10 @@ android {
         debug {
             applicationIdSuffix ".debug"
         }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 

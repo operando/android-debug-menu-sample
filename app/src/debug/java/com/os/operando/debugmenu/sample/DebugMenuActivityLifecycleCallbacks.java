@@ -6,9 +6,14 @@ import android.os.Bundle;
 
 public class DebugMenuActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
 
+    private boolean isShowDebugMenuNotification;
+
     @Override
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        DebugMenuNotificationManager.showDebugMenuNotification(activity);
+        if (!isShowDebugMenuNotification) {
+            DebugMenuNotificationManager.showDebugMenuNotification(activity);
+            isShowDebugMenuNotification = true;
+        }
     }
 
     @Override
@@ -38,6 +43,10 @@ public class DebugMenuActivityLifecycleCallbacks implements Application.Activity
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        DebugMenuNotificationManager.cancelDebugMenuNotification(activity);
+        // アプリのStack上で最後となるActivityが終わったら通知を消す
+        if (activity instanceof MainActivity) {
+            DebugMenuNotificationManager.cancelDebugMenuNotification(activity);
+            isShowDebugMenuNotification = false;
+        }
     }
 }
