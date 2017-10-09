@@ -46,7 +46,7 @@ public class DebugMenuNotificationManager {
         builder.setOngoing(true);
         builder.setContentTitle(applicationName);
         builder.setContentText("タップするとDebug Menuが開きます");
-        builder.setSmallIcon(R.drawable.ic_launcher_background);
+        builder.setSmallIcon(R.drawable.ic_notification_small);
         builder.setContentIntent(pendingIntent);
         builder.setAutoCancel(false);
         return builder.build();
