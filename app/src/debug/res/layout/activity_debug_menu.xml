@@ -64,6 +64,34 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginTop="4dp"
                 android:background="#aaa" />
+
+            <Switch
+                android:id="@+id/picasso_enable_debug_log"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Picasso Enable Debug Log"
+                android:textColor="#000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:background="#aaa" />
+
+            <Switch
+                android:id="@+id/picasso_enabled_indicators"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Picasso Enable Indicators"
+                android:textColor="#000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:background="#aaa" />
         </LinearLayout>
     </ScrollView>
 </layout>

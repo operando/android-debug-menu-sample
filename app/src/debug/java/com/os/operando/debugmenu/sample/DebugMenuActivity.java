@@ -13,6 +13,7 @@ import android.text.TextWatcher;
 import android.view.WindowManager;
 
 import com.os.operando.debugmenu.sample.databinding.ActivityDebugMenuBinding;
+import com.squareup.picasso.Picasso;
 
 public class DebugMenuActivity extends AppCompatActivity {
 
@@ -61,6 +62,18 @@ public class DebugMenuActivity extends AppCompatActivity {
         binding.apiUrlClear.setOnClickListener(v -> {
             DebugInformationPrefs.get(DebugMenuActivity.this).setApiUrl(UrlManager.API_URL);
             binding.apiUrl.setText(UrlManager.API_URL);
+        });
+
+        binding.picassoEnableDebugLog.setChecked(Picasso.with(this).isLoggingEnabled());
+        binding.picassoEnableDebugLog.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            DebugInformationPrefs.get(this).setPicassoLoggingEnabled(isChecked);
+            Picasso.with(this).setLoggingEnabled(isChecked);
+        });
+
+        binding.picassoEnabledIndicators.setChecked(Picasso.with(this).areIndicatorsEnabled());
+        binding.picassoEnabledIndicators.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            DebugInformationPrefs.get(this).setPicassoAreIndicatorsEnabled(isChecked);
+            Picasso.with(this).setIndicatorsEnabled(isChecked);
         });
     }
 }
