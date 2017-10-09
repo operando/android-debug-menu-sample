@@ -28,6 +28,42 @@
                 android:layout_marginBottom="4dp"
                 android:layout_marginTop="4dp"
                 android:background="#aaa" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="APIの向き先を変更\n※入力した内容はリアルタイムで反映されます"
+                android:textColor="#000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/api_url"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="API URL"
+                    android:inputType="textUri" />
+
+                <Button
+                    android:id="@+id/api_url_clear"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="クリア"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:background="#aaa" />
         </LinearLayout>
     </ScrollView>
 </layout>

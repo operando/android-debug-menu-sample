@@ -8,6 +8,8 @@ public class DebugApplication extends MainApplication {
 
         DebugMenuNotificationManager.createNotificationChannel(this);
 
+        UrlManager.setDebugInformationPrefs(DebugInformationPrefs.get(this));
+
         registerActivityLifecycleCallbacks(new DebugMenuActivityLifecycleCallbacks());
     }
 }

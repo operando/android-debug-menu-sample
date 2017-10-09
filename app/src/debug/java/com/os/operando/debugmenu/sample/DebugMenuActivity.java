@@ -8,6 +8,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.WindowManager;
 
 import com.os.operando.debugmenu.sample.databinding.ActivityDebugMenuBinding;
 
@@ -25,6 +28,8 @@ public class DebugMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debug_menu);
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_debug_menu);
 
         binding.openApplicationSettings.setOnClickListener(v -> {
@@ -32,6 +37,30 @@ public class DebugMenuActivity extends AppCompatActivity {
             intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
             intent.setData(Uri.fromParts("package", getPackageName(), null));
             startActivity(intent);
+        });
+
+        binding.apiUrl.setText(UrlManager.getApiUrl());
+        binding.apiUrl.setSelection(binding.apiUrl.getText().toString().length());
+        binding.apiUrl.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                DebugInformationPrefs.get(DebugMenuActivity.this).setApiUrl(s.toString());
+            }
+        });
+        binding.apiUrlClear.setOnClickListener(v -> {
+            DebugInformationPrefs.get(DebugMenuActivity.this).setApiUrl(UrlManager.API_URL);
+            binding.apiUrl.setText(UrlManager.API_URL);
         });
     }
 }

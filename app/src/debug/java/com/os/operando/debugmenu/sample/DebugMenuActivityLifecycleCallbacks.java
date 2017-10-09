@@ -43,7 +43,7 @@ public class DebugMenuActivityLifecycleCallbacks implements Application.Activity
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        // アプリのStack上で最後となるActivityが終わったら通知を消す
+        // Activityのback stack上で最後のActivityがDestroyする時に通知をクリアする
         if (activity instanceof MainActivity) {
             DebugMenuNotificationManager.cancelDebugMenuNotification(activity);
             isShowDebugMenuNotification = false;
