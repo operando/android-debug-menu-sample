@@ -5,10 +5,14 @@
     <application
         android:name="com.os.operando.debugmenu.sample.DebugApplication"
         tools:replace="android:name">
-
         <activity
             android:name="com.os.operando.debugmenu.sample.DebugMenuActivity"
             android:label="Debug Menu"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.os.operando.debugmenu.sample.DesignCheckActivity"
+            android:label="Design Check"
+            android:screenOrientation="portrait" />
     </application>
+
 </manifest>

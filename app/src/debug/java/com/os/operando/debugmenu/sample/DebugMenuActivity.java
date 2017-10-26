@@ -64,6 +64,8 @@ public class DebugMenuActivity extends AppCompatActivity {
             binding.apiUrl.setText(UrlManager.API_URL);
         });
 
+        binding.designCheck.setOnClickListener(v -> startActivity(DesignCheckActivity.createIntent(this)));
+
         binding.picassoEnableDebugLog.setChecked(Picasso.with(this).isLoggingEnabled());
         binding.picassoEnableDebugLog.setOnCheckedChangeListener((buttonView, isChecked) -> {
             DebugInformationPrefs.get(this).setPicassoLoggingEnabled(isChecked);

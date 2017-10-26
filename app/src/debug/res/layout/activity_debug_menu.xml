@@ -65,6 +65,22 @@
                 android:layout_marginTop="4dp"
                 android:background="#aaa" />
 
+            <TextView
+                android:id="@+id/design_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="48dp"
+                android:text="Design Check"
+                android:textColor="#000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:background="#aaa" />
+
             <Switch
                 android:id="@+id/picasso_enable_debug_log"
                 android:layout_width="match_parent"
