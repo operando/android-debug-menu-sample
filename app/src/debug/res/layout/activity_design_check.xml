@@ -10,20 +10,20 @@
         android:orientation="vertical">
 
         <Button
-            style="@style/ButtonA"
+            style="@style/Button.A"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Button A" />
 
         <Button
-            style="@style/ButtonB"
+            style="@style/Button.B"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Button B" />
 
         <Button
-            style="@style/ButtonC"
+            style="@style/Button.C"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

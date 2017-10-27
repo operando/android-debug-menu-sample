@@ -8,18 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ButtonA">
+    <style name="Button">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Button.A">
         <item name="android:background">#f45c5c</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="ButtonB">
+    <style name="Button.B">
         <item name="android:background">#71f47a</item>
     </style>
 
-    <style name="ButtonC">
+    <style name="Button.C">
         <item name="android:background">#5cbaf4</item>
     </style>
-
 </resources>
