@@ -56,6 +56,14 @@
                     android:text="クリア"
                     android:textColor="#000"
                     android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/api_url_list"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="リスト"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <View

@@ -15,7 +15,13 @@ import android.view.WindowManager;
 import com.os.operando.debugmenu.sample.databinding.ActivityDebugMenuBinding;
 import com.squareup.picasso.Picasso;
 
+import onactivityresult.ActivityResult;
+import onactivityresult.ExtraString;
+import onactivityresult.OnActivityResult;
+
 public class DebugMenuActivity extends AppCompatActivity {
+
+    private static final int RESULT_SELECT_API_ENVIRONMENT = 1;
 
     private ActivityDebugMenuBinding binding;
 
@@ -63,6 +69,7 @@ public class DebugMenuActivity extends AppCompatActivity {
             DebugInformationPrefs.get(DebugMenuActivity.this).setApiUrl(UrlManager.API_URL);
             binding.apiUrl.setText(UrlManager.API_URL);
         });
+        binding.apiUrlList.setOnClickListener(v -> startActivityForResult(ApiEnvironmentListActivity.createIntent(this), RESULT_SELECT_API_ENVIRONMENT));
 
         binding.designCheck.setOnClickListener(v -> startActivity(DesignCheckActivity.createIntent(this)));
 
@@ -77,5 +84,16 @@ public class DebugMenuActivity extends AppCompatActivity {
             DebugInformationPrefs.get(this).setPicassoAreIndicatorsEnabled(isChecked);
             Picasso.with(this).setIndicatorsEnabled(isChecked);
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ActivityResult.onResult(requestCode, resultCode, data).into(this);
+    }
+
+    @OnActivityResult(requestCode = RESULT_SELECT_API_ENVIRONMENT, resultCodes = {RESULT_OK})
+    void onSelectApiEnvironment(@ExtraString(name = ApiEnvironmentListActivity.RESULT_API_URL) String url) {
+        binding.apiUrl.setText(url);
     }
 }
